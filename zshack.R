@@ -1,6 +1,6 @@
 ## Reading the Training data into R
 
-zs_train <- read.csv("C:/Users/Debarati/Desktop/Zsassociates_Ideatory/TrainingData.csv",header = T, stringsAsFactors = F)
+zs_train <- read.csv(".../Zsassociates_Ideatory/TrainingData.csv",header = T, stringsAsFactors = F)
 
 ## Removing the observations where the target variable is missing
 
@@ -65,7 +65,7 @@ write.amelia(am.zs,file.stem = "zs_outdata",format="csv")
 
 ## Reading the final imputed output dataset into R
 
-zs_imputed <- read.csv("C:/Users/Debarati/Desktop/zs_outdata10.csv",header = T, stringsAsFactors = F, strip.white = T)
+zs_imputed <- read.csv(".../Zsassociates_Ideatory/zs_outdata10.csv",header = T, stringsAsFactors = F, strip.white = T)
 zs_imputed <- zs_imputed[,-1]
 
 ## Defining a variable transformation function where variables have negative values
@@ -97,7 +97,7 @@ zs.svm <- svm(Labels~.-Customer.ID, data = zs_imputed, probability = T)
 
 ## Reading the Evaluation data into R
 
-zs_eval <- read.csv("C:/Users/Debarati/Desktop/Zsassociates_Ideatory/EvaluationData.csv",header = T, stringsAsFactors = F)
+zs_eval <- read.csv(".../Zsassociates_Ideatory/EvaluationData.csv",header = T, stringsAsFactors = F)
 zs_eval$Labels <- NULL
 
 ## Retaining the same variables as in the training set
@@ -115,7 +115,7 @@ write.amelia(am.zs.eval,file.stem = "zs_eval_outdata",format="csv")
 
 ## Reading the final imputed output dataset into R
 
-zs_eval_imputed <- read.csv("C:/Users/Debarati/Desktop//Zsassociates_Ideatory/zs_eval_outdata10.csv",header = T, stringsAsFactors = F, strip.white = T)
+zs_eval_imputed <- read.csv(".../Zsassociates_Ideatory/zs_eval_outdata10.csv",header = T, stringsAsFactors = F, strip.white = T)
 zs_eval_imputed <- zs_eval_imputed[,-1]
 
 ## Applying the transform function to imputed dataset
